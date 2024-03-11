@@ -23,6 +23,8 @@ public class UrlMappingEx01 extends HttpServlet {
 		Date now = new Date();
 		out.println(now);
 		
+		// 클론에서 주석추가
+		
 		// formatter 
 		// 2024-3-04 오후 18:49:30
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
