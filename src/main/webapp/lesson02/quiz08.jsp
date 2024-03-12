@@ -61,7 +61,7 @@
 %>
 
 	<div class="container">
-		<div method="get" action="/lesson02/quiz03_1.jsp">
+		<div method="get" action="/lesson02/quiz08_1.jsp">
 			<h1 class="text-center">책 목록</h1>
 			<table class="table text-center">
 			<thead>
@@ -79,8 +79,8 @@
 				%>
 				<tr>
 					<td> <%= list.get(i).get("id") %> </td>
-					<td> <image src="<%= list.get(i).get("image")%>" height="100"> </td>
-					<td> <a class="title" href="#"><%= list.get(i).get("title") %></a> </td>
+					<td><image src="<%= list.get(i).get("image")%>" alt="표지" height="100"></td>
+					<td><a href="/lesson02/quiz08_1.jsp?id= <%= list.get(i).get("id")%> "><%= list.get(i).get("title") %></a></td>
 				</tr>
 				<%
 					}
