@@ -13,10 +13,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <style>
-	header {height:100px;}
-	nav {height: 50px;}
-	.content {min-height:800px;}
-	footer {height:30px}
+	a {text-decoration:none; color:white;}
+	a:hover {text-decoration:none; color:white};
+
+	#wrap {width:800px;}
+
+	header {height:80px;}
+
+	/*nav {height:50px;}*/
+
+	/* .contents {height:500px;} */
+
+	footer {height:30px;}
 </style>
 <body>
 <%
@@ -58,47 +66,19 @@
 	map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
 	list.add(map);
 %>
-
-
-	<div id="wrap" class="container">
-		<header class="d-flex align-items-center justify-content-center">
-			<h1>Sk Broadband IPTV</h1>
+	<div id="wrap" class="container bg-secandary">
+		<header class="d-flex justify-content-center align-items-center">
+			<jsp:include page="header.jsp" />
 		</header>
 		<nav class="bg-danger d-flex align-items-center">
 			<jsp:include page="menu.jsp" />
 		</nav>
-		<section class="content">
-			<table class="table">
-				<thead>
-					<tr>
-						<th class="text-center">채널</th>
-						<th class="text-center">채널명</th>
-						<th class="text-center">카테고리</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-						String category = request.getParameter("category");	
-					
-						for (int i = 0; i < list.size(); i++) {
-							// 출력되는 경우: 카테고리 null(전체) 또는 카테고리명 일치
-							if (category == null || list.get(i).get("category").equals(category)) {
-								
-							
-					%>		
-					<tr>
-						<td class="text-center"><%= list.get(i).get("ch") %></td>
-						<td class="text-center"><%= list.get(i).get("name") %></td>
-						<td class="text-center"><%= list.get(i).get("category") %></td>
-					</tr>
-					<%
-							}
-						}
-					%>
-				</tbody>
-			</table>
+		<section class="contents">
+			<jsp:include page="content.jsp" />
 		</section>
-		<footer class="d-flex align-items-center justify-content-center">Copyright © marondal 2021</footer>
+		<footer class="d-flex justify-content-center align-items-center">
+			<jsp:include page="footer.jsp" />
+		</footer>
 	</div>
 </body>
 </html>
