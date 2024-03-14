@@ -86,16 +86,17 @@
 <%-- logo --%>
 <div class="col-2">
 	<h3>
-		<a href="" class="text-success">Melong</a>
+		<a href="/lesson03/quiz02/list_template.jsp" class="text-success">Melong</a>
 	</h3>
 </div>
 <%-- search --%>
 <div class="col-10">
-	<form method="post" action="/lesson03/quiz02/info.jsp">
+	<!-- get:쿼리스트링. post:body에 숨겨짐 -->
+	<form method="get" action="/lesson03/quiz02/info_template.jsp">
 		<div class="input-group">
-			<input type="text" class="form-control col-6">
+			<input type="text" class="form-control col-6" name="search">
 			<div class="input-group-append">
-				<button class="btn btn-info" type="button">검색</button>
+				<button class="btn btn-info" type="submit">검색</button>
 			</div>
 		</div>
 	</form>

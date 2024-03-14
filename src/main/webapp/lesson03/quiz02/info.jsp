@@ -81,7 +81,7 @@
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
     
-    String title = request.getParameter("title");
+    
 %>
 <div class="my-4">
 	<%-- 아티스트 정보 --%>
@@ -89,8 +89,16 @@
 	<div class="border border-success d-flex p-3">
 		<div>
 		<%
+			// 1.목록에서 곡을 클릭할 때(a 태그)
+			
+			String title = request.getParameter("title");
+		
 			for (int i = 0; i < musicList.size(); i++) {
 				if (musicList.get(i).get("title").equals(title)) {
+					
+			// 2. 상단 검색 영역에서 검색해서 들어올 때
+		
+			
 		%>
 		
 			<img src=" <%= musicList.get(i).get("thumbnail") %>" alt="앨범자켓" width="150">
@@ -109,13 +117,14 @@
 				</div>
 				<div>
 					<div><%= musicList.get(i).get("album") %></div>
-					<div><%= musicList.get(i).get("time") %></div>
+					<div><%= (int)musicList.get(i).get("time") / 60 %>:<%= (int)musicList.get(i).get("time") % 60 %></div>
 					<div><%= musicList.get(i).get("composer") %></div>
 					<div><%= musicList.get(i).get("lyricist") %></div>
 				</div>	
 			</div>
 		</div>
 		<%
+			
 				}
 			}
 		%>
