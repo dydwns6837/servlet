@@ -42,12 +42,9 @@ public class Lesson04Quiz01 extends HttpServlet {
 		try {
 			ResultSet resultSet = ms.select(selectQuery);
 			while (resultSet.next()) { // 결과 행이 있는 동안 반복.
-				out.print("매물주소: ");
-				out.print(resultSet.getString("address"));
-				out.print(", 면적: ");
-				out.print(resultSet.getInt("area"));
-				out.print(", 타입: ");
-				out.print(resultSet.getString("type"));
+				out.print("매물주소: " + resultSet.getString("address"));
+				out.print(", 면적: " + resultSet.getInt("area"));
+				out.print(", 타입: " + resultSet.getString("type"));
 				out.println("");
 			}
 		} catch (SQLException e) {
