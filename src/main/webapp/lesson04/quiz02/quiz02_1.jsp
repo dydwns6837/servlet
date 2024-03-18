@@ -17,7 +17,7 @@
 	MysqlService ms = MysqlService.getInstance();
 	ms.connect();
 	
-	String selectQuery = "select * from `site`";
+	String selectQuery = "select * from `site` order by id desc";
 	ResultSet result = ms.select(selectQuery);
 	
 %>
@@ -28,6 +28,7 @@
 			<tr>
 				<th>사이트</th>
 				<th>사이트 주소</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,7 +37,8 @@
 		%>
 			<tr>
 				<td><%=result.getString("name") %></td>
-				<td><%=result.getString("url") %></td>
+				<td><a href="<%=result.getString("url") %>"><%= result.getString("url") %></a></td>
+				<td><a href="/lesson04/quiz02_delete?id=<%= result.getInt("id") %>">삭제</a></td>
 			</tr>
 			
 		<%
@@ -47,6 +49,8 @@
 <%
 	// db 연결 해제
 	ms.disconnect();
+
+	
 %>
 </body>
 </html>
